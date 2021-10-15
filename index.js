@@ -16,6 +16,7 @@ import Food from "./API/Food";
 import Menu from "./API/Menu";
 import Image from "./API/Image";
 import orders from "./API/orders/orders";
+import MailService from "./API/Mail";
 
 
 
@@ -42,6 +43,7 @@ zomato.use("/Food", Food);
 zomato.use("/Menu", Menu);
 zomato.use("/Image",Image);
 zomato.use("/orders",orders);
+zomato.use("/mail", MailService);
 //zomato.use("/reviews", Reviews);
 
 
