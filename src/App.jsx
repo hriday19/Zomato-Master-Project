@@ -7,6 +7,8 @@ import RestaurantLayoutHOC from "./HOC/Restaurant.HOC";
 import Temp from "./Components/temp";
 // pages
 import Home from "./Page/Home";
+import Overview from "./Page/Restaurant/Overview";
+import OrderOnline from "./Page/Restaurant/OrderOnline";
 
 function App() {
 
@@ -15,17 +17,19 @@ function App() {
       <Route path="/" exact>
         <Redirect to="/delivery" />
       </Route>
+      <Route path="/restaurant/:id" exact>
+        <Redirect to="/restaurant/:id/overview" />
+      </Route>
       <HomeLayoutHOC path="/:type" exact component={Home} />
-      <RestaurantLayoutHOC path="/restaurant/:id" exact component={Temp} />
       <RestaurantLayoutHOC
         path="/restaurant/:id/overview"
         exact
-        component={Temp}
+        component={Overview}
       />
       <RestaurantLayoutHOC
         path="/restaurant/:id/order-online"
         exact
-        component={Temp}
+        component={OrderOnline}
       />
       <RestaurantLayoutHOC path="/restaurant/:id/menu" exact component={Temp} />
       <RestaurantLayoutHOC
@@ -33,6 +37,7 @@ function App() {
         exact
         component={Temp}
       />
+    
       <RestaurantLayoutHOC
         path="/restaurant/:id/photos"
         exact
