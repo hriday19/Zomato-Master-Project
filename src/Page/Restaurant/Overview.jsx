@@ -143,8 +143,8 @@ const Overview = () => {
             <Mapview
               title="Mumbai Xpress"
               phno="+911212121212"
-              mapLocation={[12.988134202889283, 77.59405893120281]}
-              address="Yoyo Central Mall, Lajpat Nagar , New Delhi"
+              mapLocation={[28.5734, 77.2326]}
+              address="Yoyo Central Mall, Defence colony , New Delhi"
             />
           </div>
           <div className="my-4 flex flex-col gap-4">
@@ -160,8 +160,8 @@ const Overview = () => {
 <Mapview
             title="Mumbai Xpress"
             phno="+911212121212"
-            mapLocation={[12.988134202889283, 77.59405893120281]}
-            address="Yoyo Central Mall, Lajpat Nagar , New Delhi "
+            mapLocation={[28.5734, 77.2326]}
+            address="Yoyo Central Mall, Defence colony , New Delhi "
           />
         </aside>
       </div>
