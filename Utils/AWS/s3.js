@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 import AWS from "aws-sdk";
 
 //AWS S3 bucket config

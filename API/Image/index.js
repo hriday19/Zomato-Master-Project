@@ -1,5 +1,6 @@
 //Libraries
-require('dotenv').config()
+require('dotenv').config();
+
 import express from "express";
 import AWS from "aws-sdk";
 import multer from "multer";
@@ -34,11 +35,11 @@ Router.get("/:_id", async (req, res) => {
 
 
 //AWS S3 bucket config
-const s3Bucket = new AWS.S3({
-    accessKeyId: process.env.AWS_S3_ACCESS_KEY,
-    secretAccessKey: process.env.AWS_S3_SECRET_KEY,
-    region: "ap-south-1" 
-});
+// const s3Bucket = new AWS.S3({
+//     accessKeyId: process.env.AWS_S3_ACCESS_KEY,
+//     secretAccessKey: process.env.AWS_S3_SECRET_KEY,
+//     region: "ap-south-1" 
+// });
 
 
 /*
@@ -55,24 +56,25 @@ Router.post("/", upload.single("file") ,async(req,res)=> {
 
  //S3 bucket options
  const bucketOptions = {
-   Bucket: "zomatooshapeai",
+   Bucket: "hridaykhurana19",
    Key: file.originalname,
    Body: file.buffer,
    ContentType: file.mimetype,
    ACL: "public-read"
  };
 
- const s3Upload = (option) => {
-    return new Promise((resolve, reject) =>
-        s3Bucket.upload(option, (error,data)=>{
-         if(error) return reject(error);
-         return resolve(data);   
-            })
-    ) 
-    };
+//  const s3Upload = (option) => {
+//     return new Promise((resolve, reject) =>
+//         s3Bucket.upload(option, (error,data)=>{
+//          if(error) return reject(error);
+//          return resolve(data);   
+//             })
+//     ) 
+//     };
 
     const uploadImage = await s3Upload(bucketOptions);
-
+     
+    return res.status(200).json({ uploadImage });
   } catch (error) {
 return res.status(500).json({error: error.message});
   }
